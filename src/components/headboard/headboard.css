@@ -1,3 +1,23 @@
+.mode-desktop {
+    display: block;
+}
+
+.mode-mobile {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .mode-desktop {
+        display: none;
+    }
+
+    .mode-mobile {
+        display: block;
+    }
+}
+
+/* MODO DESKTOP */
+
 .doubt {
     position: absolute;
     width: 131px;
@@ -33,4 +53,26 @@
     line-height: 24px;
     text-align: right;
     color: #6F7DFF;
+}
+
+/* MODO MOBILE */
+
+.icon-phone-sm {
+    position: absolute;
+    right: 96px;
+    margin-top: 26px;
+}
+
+.number-phone-sm {
+    position: absolute;
+    width: 88px;
+    right: 32px;
+    margin-top: 22px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: right;
+    color: #6769FF;
 }

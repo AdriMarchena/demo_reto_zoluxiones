@@ -53,7 +53,7 @@ export function Home (props: Props) {
         <div>
             <div className="wrapper">
                 <div className="div-one"></div>
-                <Information />
+                <Information className="div-one" />
                 <div>
                     <Headboard />
                     <FormData />
@@ -64,15 +64,8 @@ export function Home (props: Props) {
 
             <div hidden className="wrapper-sm">
                 <div className="div-one-sm">
-                    <img className="logo" src={logoRimac}></img>
-                    <img className="emoticon-sm" src={imgEmoticonsm}></img>
-                    <div className="information">
-                        <label className="header-title-sm">¡NUEVO!</label>
-                        <label className="title-sm">Seguro Vehicular <label className="bold">Tracking</label></label>
-                        <label className="subtitle-sm">Cuentanos donde le haras seguimiento a tu seguro</label>
-                    </div>
-                    <img className="icon-phone-sm" src={imgPhone}></img>
-                    <label className="number-phone-sm">Llámanos</label>
+                    <Information className=""/>
+                    <Headboard />
                     <form
                         onSubmit={ev => {
                             ev.preventDefault();
