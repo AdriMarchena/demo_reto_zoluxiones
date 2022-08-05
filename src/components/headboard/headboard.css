@@ -1,0 +1,36 @@
+.doubt {
+    position: absolute;
+    width: 131px;
+    right: calc((100% / 14) + 116px);
+    margin-top: 22px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    letter-spacing: 0.2px;
+    color: #676F8F;
+}
+
+.icon-phone {
+    position: absolute;
+    right: calc((100% / 14) + 88px);
+    margin-top: 26px;
+}
+
+.number-phone {
+    position: absolute;
+    width: 88px;
+    right: calc(100% / 14);
+    margin-top: 22px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: right;
+    color: #6F7DFF;
+}
