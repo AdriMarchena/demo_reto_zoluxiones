@@ -9,45 +9,7 @@ import { Information } from "../information/information";
 import { Headboard } from "../headboard/headboard";
 import { FormData } from "../form-data/form-data";
 
-interface Props {
-    showPage: string
-}
-
-export function Home (props: Props) {
-
-    const [ nroDocument, setNroDocument ] = useState('');
-    const [ phone, setPhone ] = useState('');
-    const [ plate, setPlate ] = useState('');
-    const [ terms, setTerms ] = useState('');
-    
-    const validate = (caseLabel: Number) => {
-        let errorMessage = ''
-        switch (caseLabel) {
-            case 1:
-                if(nroDocument !== "" && nroDocument.length > 3) errorMessage = 'DNI incorrecto';
-                break;
-            case 2:
-                if(phone !== "" && phone.length < 9) errorMessage = 'Celular incorrecto';;
-                break;
-            case 3:
-                if(plate !== "" && !plate.includes('@')) errorMessage = 'Placa incorrecta';;
-                break;
-            default:
-                break;
-        }
-        return errorMessage;
-    }
-
-    const sendQuote = () => {
-        if(nroDocument !== '' && phone !== '' && plate !=='' && terms === "true"){
-            axios.get('https://jsonplaceholder.typicode.com/todos/' + nroDocument, {})
-            .then((response) => {
-                alert('Puede cotizar. \n Usuario: ' + response.data.userId + "\n Titulo: " + response.data.title);
-            });
-        } else {
-            alert('No ha completado todos los campos');
-        }
-    }
+export function Home () {
 
     return (
         <div>
@@ -56,7 +18,18 @@ export function Home (props: Props) {
                 <Information className="div-one" />
                 <div>
                     <Headboard />
-                    <FormData />
+                    <FormData 
+                        classTitleForm="title-form"
+                        classContent1="div-content-1"
+                        classContent2="div-content-2"
+                        classContent3="div-content-3"
+                        classContent4="div-content-4"
+                        classContent5="div-content-5"
+                        classDivSelect="div-select1"
+                        classDivInput="div-select2"
+                        classInput="input-doc"
+                        classButton="button-end"
+                        classErrorMessage="error-message" />
                 </div>
                 <div></div>
             </div>
@@ -66,70 +39,18 @@ export function Home (props: Props) {
                 <div className="div-one-sm">
                     <Information className=""/>
                     <Headboard />
-                    <form
-                        onSubmit={ev => {
-                            ev.preventDefault();
-                            sendQuote();
-                        }}
-                    >
-                        <label className="title-form-sm">Déjanos tus datos</label>
-                        <div className="div-content-1-sm">
-                            <div className="div-select1-sm">
-                                <select id="mainselection" className="select-doc">
-                                    <option>DNI</option>
-                                    <option>RUC</option>
-                                </select>
-                            </div>
-                            <div className="div-select2-sm">
-                                <input 
-                                    placeholder="Nro. de doc" 
-                                    className="input-doc-sm"
-                                    name="nroDocument" 
-                                        value={nroDocument}
-                                        onChange={ev => setNroDocument(ev.target.value)}
-                                ></input>
-                            </div>
-                        </div>
-                        <label className="error-message-sm">{validate(1)}</label>
-                        <div className="div-content-2-sm">
-                            <input 
-                                placeholder="Celular" 
-                                className="input-form"
-                                name="phone" 
-                                value={phone}
-                                onChange={ev => setPhone(ev.target.value)}
-                            ></input>
-                        </div>
-                        <label className="error-message-sm">{validate(2)}</label>
-                        <div className="div-content-3-sm">
-                            <input 
-                                placeholder="Placa" 
-                                className="input-form"
-                                name="plate" 
-                                value={plate}
-                                onChange={ev => setPlate(ev.target.value)}
-                            ></input>
-                        </div>
-                        <label className="error-message-sm">{validate(3)}</label>
-                        <div className="div-content-4-sm">
-                            <input 
-                                type="checkbox" 
-                                className="checkbox"
-                                name="terms"
-                                value={terms}
-                                onChange={ev => setTerms(String(ev.target.checked))}
-                            ></input>
-                            <div className="div-terms">
-                                <label className="label-terms">Acepto la &nbsp;
-                                    <a href="">Política de Protección de Datos Personales</a> y los 
-                                    <a href="">Términos y Condiciones.</a>
-                                </label>
-                            </div>
-                        </div>
-                        <div className="div-content-5-sm">
-                            <button type="submit" className="button-end-sm">COTÍZALO</button>
-                        </div>
-                    </form>
+                    <FormData 
+                        classTitleForm="title-form-sm"
+                        classContent1="div-content-1-sm"
+                        classContent2="div-content-2-sm"
+                        classContent3="div-content-3-sm"
+                        classContent4="div-content-4-sm"
+                        classContent5="div-content-5-sm"
+                        classDivSelect="div-select1-sm"
+                        classDivInput="div-select2-sm"
+                        classInput="input-doc-sm"
+                        classButton="button-end-sm"
+                        classErrorMessage="error-message-sm" />
                 </div>
                 <div></div>
             </div>

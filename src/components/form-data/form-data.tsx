@@ -2,7 +2,21 @@ import { useState } from "react";
 import axios from 'axios';
 import './form-data.css';
 
-export function FormData () {
+interface Props {
+    classTitleForm: string,
+    classContent1: string,
+    classContent2: string,
+    classContent3: string,
+    classContent4: string,
+    classContent5: string,
+    classDivSelect: string,
+    classDivInput: string,
+    classInput: string,
+    classButton: string,
+    classErrorMessage: string,
+}
+
+export function FormData (props: Props) {
 
     const [ nroDocument, setNroDocument ] = useState('');
     const [ phone, setPhone ] = useState('');
@@ -45,26 +59,26 @@ export function FormData () {
                 sendQuote();
             }}
         >
-            <label className="title-form">Déjanos tus datos</label>
-            <div className="div-content-1">
-                <div className="div-select1">
+            <label className={ props.classTitleForm }>Déjanos tus datos</label>
+            <div className={ props.classContent1 }>
+                <div className={ props.classDivSelect }>
                     <select id="mainselection" className="select-doc">
                         <option>DNI</option>
                         <option>RUC</option>
                     </select>
                 </div>
-                <div className="div-select2">
+                <div className={ props.classDivInput }>
                     <input 
                         placeholder="Nro. de doc" 
-                        className="input-doc" 
+                        className={ props.classInput } 
                         name="nroDocument" 
                         value={nroDocument}
                         onChange={ev => setNroDocument(ev.target.value)}
                     ></input>
                 </div>
             </div>
-            <label className="error-message">{validate(1)}</label>
-            <div className="div-content-2">
+            <label className={ props.classErrorMessage }>{validate(1)}</label>
+            <div className={ props.classContent2 }>
                 <input 
                     placeholder="Celular"
                     className="input-form"
@@ -73,8 +87,8 @@ export function FormData () {
                     onChange={ev => setPhone(ev.target.value)}
                 ></input>
             </div>
-            <label className="error-message">{validate(2)}</label>
-            <div className="div-content-3">
+            <label className={ props.classErrorMessage }>{validate(2)}</label>
+            <div className={ props.classContent3 }>
                 <input 
                     placeholder="Placa" 
                     className="input-form"
@@ -83,8 +97,8 @@ export function FormData () {
                     onChange={ev => setPlate(ev.target.value)}
                 ></input>
             </div>
-            <label className="error-message">{validate(3)}</label>
-            <div className="div-content-4">
+            <label className={ props.classErrorMessage }>{validate(3)}</label>
+            <div className={ props.classContent4 }>
                 <input 
                     id="checkboxTerms"
                     type="checkbox" 
@@ -100,8 +114,8 @@ export function FormData () {
                     </label>
                 </div>
             </div>
-            <div className="div-content-5">
-                <button type="submit" className="button-end">COTÍZALO</button>
+            <div className={ props.classContent5 }>
+                <button type="submit" className={ props.classButton }>COTÍZALO</button>
             </div>
         </form>
     )
