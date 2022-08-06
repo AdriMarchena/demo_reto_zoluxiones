@@ -1,10 +1,4 @@
-import React, { Component, useState } from "react";
-import axios from 'axios';
 import './home.css';
-import logoRimac from '../../assets/images/logo-rimac.png';
-import imgEmoticon from '../../assets/images/emoticon.png';
-import imgEmoticonsm from '../../assets/images/emoticon-mobile.png';
-import imgPhone from '../../assets/images/phone.png';
 import { Information } from "../information/information";
 import { Headboard } from "../headboard/headboard";
 import { FormData } from "../form-data/form-data";
